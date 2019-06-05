@@ -150,7 +150,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchBar/Service/SearchService.swift"
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchBar/Controllers/Home/HomeViewController.swift"
-            timestampString = "581421594.666023"
+            timestampString = "581421883.7214479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "setImageView(imageView:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchBar/Controllers/Home/HomeViewController.swift"
-            timestampString = "581421594.666535"
+            timestampString = "581421883.721972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
+            landmarkName = "loadSearchResults(searchTerm:page:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SearchBar/Controllers/Home/HomeViewController.swift"
+            timestampString = "581421970.237918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "loadSearchResults(searchTerm:page:)"
             landmarkType = "7">
          </BreakpointContent>

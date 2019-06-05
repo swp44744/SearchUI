@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
   
   // MARK: - Properties
   var searchData: [SearchResultContainer]?
-  var tempData: [SearchResultContainer] = []
+  var tempSearchData: [SearchResultContainer] = []
   var currentTitle: String?
   var currentImageUrlString: String?
   var pagIndex: Int = 1
@@ -52,8 +52,8 @@ class HomeViewController: UIViewController {
       switch data {
       case .success(let result):
         if let data = result.data {
-          self.tempData.append(contentsOf: data)
-          self.searchData = self.tempData
+          self.tempSearchData.append(contentsOf: data)
+          self.searchData = self.tempSearchData
           self.reloadSearchData()
         }
         self.stopAnimating()
@@ -203,6 +203,7 @@ extension HomeViewController: UISearchBarDelegate {
   }
   
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    tempSearchData = []
     
     if searchText == "" {
       currentSearchText = HomeViewController.defaultSearchParam
