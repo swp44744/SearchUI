@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
   let heightForCell: CGFloat = 90
   let searchService = SearchService()
   static let defaultSearchParam: String = "beach"
+  let debouncer = Debouncer(timeInterval: 0.25)
   
   // MARK: - Properties
   var searchData: [SearchResultContainer]?
@@ -47,22 +48,27 @@ class HomeViewController: UIViewController {
   ///
   /// - Parameter searchTerm: User input
   private func loadSearchResults(searchTerm: String = defaultSearchParam, page: Int = 1) {
-    startAnimating()
-    searchService.getSearchResults(searchTerm: searchTerm, page: page) { data in
-      switch data {
-      case .success(let result):
-        if let data = result.data {
-          self.tempSearchData.append(contentsOf: data)
-          self.searchData = self.tempSearchData
-          self.reloadSearchData()
+    debouncer.renewInterval()
+    debouncer.handler = {
+      print("send network request..")
+      self.startAnimating()
+      self.searchService.getSearchResults(searchTerm: searchTerm, page: page) { data in
+        switch data {
+        case .success(let result):
+          if let data = result.data {
+            self.tempSearchData.append(contentsOf: data)
+            self.searchData = self.tempSearchData
+            self.reloadSearchData()
+          }
+          self.stopAnimating()
+        case .failure(_):
+          //TODO: Throw nice error on UI
+          print("Unable to fetch search results, please try again..")
+          self.stopAnimating()
         }
-        self.stopAnimating()
-      case .failure(_):
-        //TODO: Throw nice error on UI
-        print("Unable to fetch search results, please try again..")
-        self.stopAnimating()
       }
     }
+    print("sending already...")
   }
   
 
