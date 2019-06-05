@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchBar/Controllers/Home/HomeViewController.swift"
-            timestampString = "581419057.567613"
+            timestampString = "581421594.666023"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "setImageView(imageView:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SearchBar/Controllers/Home/HomeViewController.swift"
-            timestampString = "581419057.567948"
+            timestampString = "581421594.666535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "loadSearchResults(searchTerm:page:)"
             landmarkType = "7">
          </BreakpointContent>

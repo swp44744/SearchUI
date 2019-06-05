@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
   
   //   MARK : - Outlets
   @IBOutlet var searchTableView: UITableView!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   
   // MARK: - Constants
@@ -31,6 +32,8 @@ class HomeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    configureActivityIndicator()
+    stopAnimating()
     configureSearchBar()
     loadSearchResults()
     registerNibs()
@@ -44,6 +47,7 @@ class HomeViewController: UIViewController {
   ///
   /// - Parameter searchTerm: User input
   private func loadSearchResults(searchTerm: String = defaultSearchParam, page: Int = 1) {
+    startAnimating()
     searchService.getSearchResults(searchTerm: searchTerm, page: page) { data in
       switch data {
       case .success(let result):
@@ -52,9 +56,11 @@ class HomeViewController: UIViewController {
           self.searchData = self.tempData
           self.reloadSearchData()
         }
+        self.stopAnimating()
       case .failure(_):
         //TODO: Throw nice error on UI
         print("Unable to fetch search results, please try again..")
+        self.stopAnimating()
       }
     }
   }
@@ -68,6 +74,24 @@ class HomeViewController: UIViewController {
   private func reloadSearchData() {
     DispatchQueue.main.async {
       self.searchTableView.reloadData()
+    }
+  }
+  
+  private func configureActivityIndicator() {
+    
+  }
+  
+  private func startAnimating() {
+    DispatchQueue.main.async {
+      self.activityIndicator.isHidden = false
+      self.activityIndicator.startAnimating()
+    }
+  }
+  
+  private func stopAnimating() {
+    DispatchQueue.main.async {
+      self.activityIndicator.isHidden = true
+      self.activityIndicator.stopAnimating()
     }
   }
   

@@ -18,6 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="yzM-S1-C0d">
+                            <rect key="frame" x="0.0" y="72" width="414" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="f8h-hd-1pR">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -35,6 +40,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Search" id="gKC-Lc-hSO"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="yzM-S1-C0d" id="Nws-sN-7sy"/>
                         <outlet property="searchTableView" destination="KGd-F5-KXO" id="UVR-zw-rwF"/>
                     </connections>
                 </tableViewController>
