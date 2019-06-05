@@ -26,6 +26,7 @@
 		0BBE8AFB22A793080059EF07 /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8AFA22A793080059EF07 /* SearchDetailViewController.swift */; };
 		0BBE8AFD22A8032E0059EF07 /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8AFC22A8032E0059EF07 /* Debouncer.swift */; };
 		0BBE8B1122A8209D0059EF07 /* SearchServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8B0F22A820670059EF07 /* SearchServiceTest.swift */; };
+		0BBE8B1322A828FC0059EF07 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8B1222A828FC0059EF07 /* Extensions.swift */; };
 		28836C92329E2D79DDD86911 /* libPods-SearchBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78782F7D4A01B402A0B46BBC /* libPods-SearchBar.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		0BBE8B0522A81E910059EF07 /* SearchBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBE8B0922A81E910059EF07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBE8B0F22A820670059EF07 /* SearchServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTest.swift; sourceTree = "<group>"; };
+		0BBE8B1222A828FC0059EF07 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C104BABB0FF81C8044224FB /* Pods-SearchBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchBar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchBar/Pods-SearchBar.debug.xcconfig"; sourceTree = "<group>"; };
 		78782F7D4A01B402A0B46BBC /* libPods-SearchBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SearchBar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17B54539CD8292D5B58E732 /* Pods-SearchBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchBar/Pods-SearchBar.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				0BBE8AE022A6D8720059EF07 /* NavigationBarProtocol.swift */,
 				0BBE8AE622A72F290059EF07 /* SessionResult.swift */,
 				0BBE8AFC22A8032E0059EF07 /* Debouncer.swift */,
+				0BBE8B1222A828FC0059EF07 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				0BBE8AC722A6C0530059EF07 /* SearchBar.xcdatamodeld in Sources */,
 				0BBE8AE122A6D8720059EF07 /* NavigationBarProtocol.swift in Sources */,
 				0BBE8AFD22A8032E0059EF07 /* Debouncer.swift in Sources */,
+				0BBE8B1322A828FC0059EF07 /* Extensions.swift in Sources */,
 				0BBE8AE522A7220F0059EF07 /* SearchService.swift in Sources */,
 				0BBE8ABF22A6C0530059EF07 /* AppDelegate.swift in Sources */,
 				0BBE8AFB22A793080059EF07 /* SearchDetailViewController.swift in Sources */,
