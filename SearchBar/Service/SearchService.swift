@@ -61,7 +61,7 @@ class SearchService {
   ///   - urlString: API string url
   ///   - param: search criteria to send as a query parameter
   /// - Returns: returns mutable session request
-  private func prepareRequestWithHeaders(with urlString: String, param: String) -> NSMutableURLRequest? {
+  func prepareRequestWithHeaders(with urlString: String, param: String) -> NSMutableURLRequest? {
     var urlComponent = URLComponents(string: urlString)
     urlComponent?.queryItems = [URLQueryItem(name: "q", value: param)]
     
