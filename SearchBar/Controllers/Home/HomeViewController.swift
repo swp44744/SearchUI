@@ -50,7 +50,6 @@ class HomeViewController: UIViewController {
   private func loadSearchResults(searchTerm: String = defaultSearchParam, page: Int = 1) {
     debouncer.renewInterval()
     debouncer.handler = {
-      print("send network request..")
       self.startAnimating()
       self.searchService.getSearchResults(searchTerm: searchTerm, page: page) { data in
         switch data {
@@ -68,7 +67,6 @@ class HomeViewController: UIViewController {
         }
       }
     }
-    print("sending already...")
   }
   
 
