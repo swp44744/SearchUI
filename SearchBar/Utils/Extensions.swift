@@ -23,8 +23,6 @@ extension UIImageView {
     
     if let url = URL(string: URLString) {
       URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-        
-        //print("RESPONSE FROM API: \(response)")
         if error != nil {
           print("ERROR LOADING IMAGES FROM URL: \(error)")
           DispatchQueue.main.async {
@@ -44,24 +42,3 @@ extension UIImageView {
     }
   }
 }
-
-//extension UIImageView {
-//  func loadImage(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-//    contentMode = mode
-//    URLSession.shared.dataTask(with: url) { data, response, error in
-//      guard
-//        let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-//        let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-//        let data = data, error == nil,
-//        let image = UIImage(data: data)
-//        else { return }
-//      DispatchQueue.main.async() {
-//        self.image = image
-//      }
-//      }.resume()
-//  }
-//  func loadImage(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-//    guard let url = URL(string: link) else { return }
-//    loadImage(from: url, contentMode: mode)
-//  }
-//}
