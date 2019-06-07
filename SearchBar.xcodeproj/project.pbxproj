@@ -13,8 +13,7 @@
 		0BBE8AC922A6C0550059EF07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BBE8AC822A6C0550059EF07 /* Assets.xcassets */; };
 		0BBE8ACC22A6C0550059EF07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BBE8ACA22A6C0550059EF07 /* LaunchScreen.storyboard */; };
 		0BBE8ADC22A6D0CC0059EF07 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8ADB22A6D0CC0059EF07 /* HomeViewController.swift */; };
-		0BBE8ADF22A6D4540059EF07 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8ADE22A6D4540059EF07 /* SearchController.swift */; };
-		0BBE8AE122A6D8720059EF07 /* NavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8AE022A6D8720059EF07 /* NavigationBarProtocol.swift */; };
+		0BBE8ADF22A6D4540059EF07 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8ADE22A6D4540059EF07 /* CustomSearchController.swift */; };
 		0BBE8AE522A7220F0059EF07 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8AE422A7220F0059EF07 /* SearchService.swift */; };
 		0BBE8AE722A72F290059EF07 /* SessionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8AE622A72F290059EF07 /* SessionResult.swift */; };
 		0BBE8AE922A72FA80059EF07 /* SearchImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE8AE822A72FA80059EF07 /* SearchImages.swift */; };
@@ -49,8 +48,7 @@
 		0BBE8ACB22A6C0550059EF07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BBE8ACD22A6C0550059EF07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BBE8ADB22A6D0CC0059EF07 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		0BBE8ADE22A6D4540059EF07 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		0BBE8AE022A6D8720059EF07 /* NavigationBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarProtocol.swift; sourceTree = "<group>"; };
+		0BBE8ADE22A6D4540059EF07 /* CustomSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 		0BBE8AE422A7220F0059EF07 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		0BBE8AE622A72F290059EF07 /* SessionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResult.swift; sourceTree = "<group>"; };
 		0BBE8AE822A72FA80059EF07 /* SearchImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImages.swift; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 		0BBE8AD522A6C7860059EF07 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0BBE8AE022A6D8720059EF07 /* NavigationBarProtocol.swift */,
 				0BBE8AE622A72F290059EF07 /* SessionResult.swift */,
 				0BBE8AFC22A8032E0059EF07 /* Debouncer.swift */,
 				0BBE8B1222A828FC0059EF07 /* Extensions.swift */,
@@ -192,7 +189,7 @@
 		0BBE8ADD22A6D43E0059EF07 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				0BBE8ADE22A6D4540059EF07 /* SearchController.swift */,
+				0BBE8ADE22A6D4540059EF07 /* CustomSearchController.swift */,
 				0BBE8AF322A768250059EF07 /* SearchCell.swift */,
 			);
 			path = Search;
@@ -390,13 +387,12 @@
 				0BBE8ADC22A6D0CC0059EF07 /* HomeViewController.swift in Sources */,
 				0BBE8AF022A742F80059EF07 /* SearchResultContainer.swift in Sources */,
 				0BBE8AC722A6C0530059EF07 /* SearchBar.xcdatamodeld in Sources */,
-				0BBE8AE122A6D8720059EF07 /* NavigationBarProtocol.swift in Sources */,
 				0BBE8AFD22A8032E0059EF07 /* Debouncer.swift in Sources */,
 				0BBE8B1322A828FC0059EF07 /* Extensions.swift in Sources */,
 				0BBE8AE522A7220F0059EF07 /* SearchService.swift in Sources */,
 				0BBE8ABF22A6C0530059EF07 /* AppDelegate.swift in Sources */,
 				0BBE8AFB22A793080059EF07 /* SearchDetailViewController.swift in Sources */,
-				0BBE8ADF22A6D4540059EF07 /* SearchController.swift in Sources */,
+				0BBE8ADF22A6D4540059EF07 /* CustomSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

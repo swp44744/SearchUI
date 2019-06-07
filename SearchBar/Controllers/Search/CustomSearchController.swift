@@ -1,5 +1,5 @@
 //
-//  SearchController.swift
+//  CustomSearchController.swift
 //  SearchBar
 //
 //  Created by Swapnil Raut on 6/4/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SearchController: UISearchController, UISearchBarDelegate {
+public class CustomSearchController: UISearchController {
   // MARK: - Properties
   
   public lazy var _searchBar: NoCancelSearchBar = {

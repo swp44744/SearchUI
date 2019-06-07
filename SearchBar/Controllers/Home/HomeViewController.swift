@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
   
   
   // MARK: - Constants
-  let searchNavBar = UISearchBar()
   let heightForCell: CGFloat = 90
   let searchService = SearchService()
   static let defaultSearchParam: String = "beach"
@@ -25,23 +24,23 @@ class HomeViewController: UIViewController {
   // MARK: - Properties
   var searchData: [SearchResultContainer]?
   var tempSearchData: [SearchResultContainer] = []
-  var currentTitle: String?
   var currentImageUrlString: String?
   var pagIndex: Int = 1
   var currentSearchText: String?
-  
+  let searchController = CustomSearchController(searchResultsController: nil)
 
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureActivityIndicator()
     stopAnimating()
-    configureSearchBar()
     loadSearchResults()
     registerNibs()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    configureSearchBar()
   }
 
   /// Load Search Data
@@ -68,7 +67,6 @@ class HomeViewController: UIViewController {
       }
     }
   }
-  
 
   /// Register nibs
   private func registerNibs() {
@@ -100,12 +98,13 @@ class HomeViewController: UIViewController {
   }
   
   
-  /// Configure Search nav bar item
+  /// Configure Search nav bar using UISearchController
   private func configureSearchBar() {
-    searchNavBar.showsCancelButton = false
-    searchNavBar.placeholder = "Search here"
-    searchNavBar.delegate = self
-    self.navigationItem.titleView = searchNavBar
+    searchController.searchResultsUpdater = self
+    searchController.hidesNavigationBarDuringPresentation = false
+    searchController.dimsBackgroundDuringPresentation = false
+    navigationItem.hidesSearchBarWhenScrolling = false
+    self.navigationItem.titleView = searchController.searchBar
   }
   
   private func getData(at row: Int) -> SearchResultContainer? {
@@ -142,19 +141,11 @@ extension HomeViewController: UITableViewDelegate {
   ///   - indexPath: Index at cell is selected
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    if let data = getData(at: indexPath.row) {
-      currentTitle = data.title
-      if let image = data.images?.first, let imageType = image.imageType, let imageUrl = image.imageLink {
-        if imageType == "image/jpeg" {
-          currentImageUrlString = imageUrl
-        }
-      }
-    }
-    
     let searchDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchDetailViewController") as? SearchDetailViewController
     
     if let viewController = searchDetailViewController {
       viewController.delegate = self
+      searchController.isActive = false
       self.navigationController?.pushViewController(viewController, animated: true)
     }
   }
@@ -195,42 +186,70 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UIScrollViewDelegate {
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    searchNavBar.endEditing(true)
+    searchController.searchBar.endEditing(true)
   }
 }
 
 
 // MARK: - UISearchBarDelegate implementation
 extension HomeViewController: UISearchBarDelegate {
-  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    searchNavBar.endEditing(true)
+  
+  func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+//    searchButtonTapped()
+    print("in begin editing")
+    return false
   }
   
-  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    tempSearchData = []
-    
-    if searchText == "" {
-      currentSearchText = HomeViewController.defaultSearchParam
-      loadSearchResults(searchTerm: HomeViewController.defaultSearchParam)
-    } else {
-        currentSearchText = searchText
-        loadSearchResults(searchTerm: searchText)
-    }
-   
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    searchController.searchBar.endEditing(true)
   }
 }
 
 
 // MARK: - SetSearchDetailView title
-extension HomeViewController: SetSearchDetailViewTitleDelegate {
+extension HomeViewController: SetSearchDetailViewDelegate {
   func setImageView(imageView: UIImageView) {
-    if let imageUrlString = currentImageUrlString {
-      imageView.loadImage(from: imageUrlString)
+    if let row = searchTableView.indexPathForSelectedRow?.row {
+      
+      /*
+            Note: - Some of the items in search API are containing mp4 videos instead of images or empty Image object. if that happens setting imageview to placeholder image.
+       */
+      
+      if let data = getData(at: row), let image = data.images?.first, let imageType = image.imageType, let imageUrl = image.imageLink {
+        if imageType == "image/jpeg" || imageType == "image/png" {
+          imageView.loadImage(from: imageUrl, placeHolder: UIImage(named: "no_image"))
+        } else {
+          imageView.image = UIImage(named: "no_image")
+        }
+      } else {
+        imageView.image = UIImage(named: "no_image")
+      }
     }
   }
   
   func setTitle(navItem: UINavigationItem) {
-    navItem.title = currentTitle
+    if let row = searchTableView.indexPathForSelectedRow?.row, let data = getData(at: row) {
+      navItem.title = data.title
+    }
+  }
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension HomeViewController: UISearchResultsUpdating {
+  // MARK: - UISearchResultsUpdating Delegate
+  func updateSearchResults(for searchController: UISearchController) {
+    if let searchText = searchController.searchBar.text {
+      tempSearchData = []
+      if searchText == "" {
+        currentSearchText = HomeViewController.defaultSearchParam
+        loadSearchResults(searchTerm: HomeViewController.defaultSearchParam)
+      } else {
+        currentSearchText = searchText
+        loadSearchResults(searchTerm: searchText)
+      }
+    }
+    
   }
 }
 

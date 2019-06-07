@@ -59,7 +59,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awn-ag-eRi">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Small_Red_Rose" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-9l-Tmg">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="jBZ-9l-Tmg">
                                         <rect key="frame" x="182" y="384" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="GlM-C3-Lsd"/>
@@ -112,6 +112,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Small_Red_Rose" width="1136" height="852"/>
+        <image name="no_image" width="100" height="100"/>
     </resources>
 </document>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol SetSearchDetailViewTitleDelegate {
+public protocol SetSearchDetailViewDelegate {
   func setTitle(navItem: UINavigationItem)
   func setImageView(imageView: UIImageView)
 }
@@ -32,18 +32,28 @@ class SearchDetailViewController: UIViewController {
   var screenHeight: CGFloat {
     return UIScreen.main.bounds.height
   }
-  var delegate: SetSearchDetailViewTitleDelegate?
+  var delegate: SetSearchDetailViewDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureImageView()
     delegate?.setTitle(navItem: self.navigationItem)
     delegate?.setImageView(imageView: detailImageView)
+    configureImageView()
     }
   
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    super.viewWillTransition(to: size, with: coordinator)
+    configureImageView()
+  }
+  
   private func configureImageView() {
-    detailImageWidth.constant = screenWidth * 0.7
-    detailImageHeight.constant = screenWidth * 0.7
+    if screenWidth < screenHeight {
+      detailImageWidth.constant = screenWidth * 0.7
+      detailImageHeight.constant = screenWidth * 0.7
+    } else {
+      detailImageWidth.constant = screenHeight * 0.7
+      detailImageHeight.constant = screenHeight * 0.7
+    }
     detailImageView.layer.cornerRadius = detailImageWidth.constant / 2
     detailImageView.clipsToBounds = true
     detailImageView.layer.borderWidth = 0.5

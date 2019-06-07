@@ -55,9 +55,13 @@ class SearchCell: UITableViewCell {
   private func updateSearchCellView(searchData: SearchResultContainer) {
     // Update Image view
     if let image = searchData.images?.first, let imageType = image.imageType, let imageUrl = image.imageLink {
-      if imageType == "image/jpeg" {
-        searchImage.loadImage(from: imageUrl)
+      if imageType == "image/jpeg" || imageType == "image/png" {
+        searchImage.loadImage(from: imageUrl, placeHolder: UIImage(named: "no_image_icon_list_view"))
+      } else {
+        searchImage.image = UIImage(named: "no_image_icon_list_view")
       }
+    } else {
+      searchImage.image = UIImage(named: "no_image_icon_list_view")
     }
     
     if let searchItemTitle = searchData.title {
