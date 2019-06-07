@@ -25,6 +25,7 @@ class SearchService {
   
   let urlString = "https://api.imgur.com/3/gallery/search/time/"
   let authHeaderKey = "Client-ID 126701cd8332f32"
+  let authHeader = "Authorization"
   let contentHeaderKey = "Content-Type"
   
   
@@ -68,7 +69,7 @@ class SearchService {
     if let component = urlComponent, let url = component.url {
       let request = NSMutableURLRequest(url: url)
       request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-      request.addValue("Client-ID 126701cd8332f32", forHTTPHeaderField: "Authorization")
+      request.addValue(authHeaderKey, forHTTPHeaderField: authHeader)
       
     
       request.httpMethod = httpMethodType.GET.rawValue
